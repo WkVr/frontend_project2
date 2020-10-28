@@ -1,1 +1,7 @@
-<p>upload works!</p>
+<div>
+    <input #file type="file" name="input" />
+    <h1>file: {{file.value}}</h1>
+</div>
+<div>
+    <button mat-stroked-button onclick="read()">Read</button>
+</div>
