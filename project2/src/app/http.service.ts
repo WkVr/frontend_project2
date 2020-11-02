@@ -16,5 +16,10 @@ export class HttpService {
   {
     return this.http.post(url, data);
   }
+
+  createRecord(url, data)
+  {
+    return this.http.post(url, data);
+  }
    
 }

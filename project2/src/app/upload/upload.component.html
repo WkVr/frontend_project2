@@ -1,3 +1,12 @@
 <div class="Block">
     <input type='file' (change)="fileChanged($event)">
 </div>
+
+<div *ngIf="listShow" #info>
+    <mat-selection-list >
+        <mat-list-option *ngFor="let info of information">
+          {{ info }}
+        </mat-list-option>
+    </mat-selection-list>
+    <button mat-stroked-button (click)="write()">Submit</button>
+</div>

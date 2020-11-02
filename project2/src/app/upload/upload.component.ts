@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpService } from "../http.service";
 
 @Component({
   selector: 'app-upload',
@@ -8,13 +7,13 @@ import { HttpService } from "../http.service";
 })
 export class UploadComponent implements OnInit {
 
+  information: string[];
 
-  constructor() {
-    
-   }
-  ngOnInit(): void {
-    
-  }
+  listShow = false;
+
+  constructor() {}
+
+  ngOnInit(): void {}
 
   file:any;
   fileChanged(e) {
@@ -25,9 +24,19 @@ export class UploadComponent implements OnInit {
   uploadDocument(file) {
     let fileReader = new FileReader();
     fileReader.onload = (e) => {
-      console.log(fileReader.result);
+      this.readToArray(fileReader.result.toString());
+      this.listShow = true;
     }
     fileReader.readAsText(this.file);
+  }
+
+  readToArray(info: string){
+    this.information = info.split(',');
+    console.log(this.information);
+  }
+
+  write(){
+    
   }
 
 }
