@@ -1,0 +1,13 @@
+div{
+  background-color: rgba(56, 53, 53, 0.5);
+  border-radius: 25px;
+  justify-content: center;
+  padding: 50px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+.button:hover {
+  cursor: pointer;
+}

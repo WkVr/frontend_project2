@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project2';
+
+  blogin = false;
+
+  login(){
+    if(this.blogin){
+      this.blogin = false;
+    }
+    this.blogin = true;
+  }
 }

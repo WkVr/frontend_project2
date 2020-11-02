@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { UploadComponent } from './upload/upload.component';
 import { RecordsComponent } from './records/records.component';
 import { InfoComponent } from './info/info.component';
+import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     HeaderComponent,
     UploadComponent,
     RecordsComponent,
-    InfoComponent
+    InfoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
