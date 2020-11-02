@@ -12,4 +12,5 @@
         <br>
     </form>
     <button mat-flat-button color="accent" (click)="login(username.value, password.value)">Login</button>
+    <p *ngIf="loginError">Login credential are incorrect</p>
 </div>

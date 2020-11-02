@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from "../http.service";
-import {FormControl, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpService) { }
 
-  public bLogin = false;
+  public bLogin;
+  loginError = false;
 
   ngOnInit(): void {
   }
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         console.log("Error");
+        this.loginError = true;
       },
       () => {
         console.log("Logged In");
