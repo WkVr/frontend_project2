@@ -17,5 +17,8 @@ export class HttpService {
     return this.http.post(url, data);
   }
 
+  upload(url){
+    return this.http.get(url, {responseType: 'text'});
+  }
    
 }

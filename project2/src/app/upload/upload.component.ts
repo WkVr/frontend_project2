@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { HttpService } from "../http.service";
 
 @Component({
   selector: 'app-upload',
@@ -7,8 +8,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UploadComponent implements OnInit {
 
-  constructor() { }
+  htmlVariable: string;
 
+  constructor(private http: HttpService) {
+    
+   }
   ngOnInit(): void {
   }
+
 }
