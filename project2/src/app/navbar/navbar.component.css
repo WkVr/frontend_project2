@@ -1,0 +1,12 @@
+.mat-tab-group {
+    padding: 10px;
+    color: black;
+}
+
+::ng-deep .mat-tab-label, .mat-tab-link {
+    color: black;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: rgb(140, 140, 140);
+}
