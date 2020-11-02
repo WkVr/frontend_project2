@@ -8,12 +8,26 @@ import { HttpService } from "../http.service";
 })
 export class UploadComponent implements OnInit {
 
-  htmlVariable: string;
 
-  constructor(private http: HttpService) {
+  constructor() {
     
    }
   ngOnInit(): void {
+    
+  }
+
+  file:any;
+  fileChanged(e) {
+    this.file = e.target.files[0];
+    this.uploadDocument(this.file);
+  }
+
+  uploadDocument(file) {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+    }
+    fileReader.readAsText(this.file);
   }
 
 }
