@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!bLogin">
     <form>
         <mat-form-field >
           <mat-label>Username</mat-label>
@@ -13,4 +13,8 @@
     </form>
     <button mat-flat-button color="accent" (click)="login(username.value, password.value)">Login</button>
     <p *ngIf="loginError">Login credential are incorrect</p>
+</div>
+
+<div *ngIf="bLogin">
+  
 </div>

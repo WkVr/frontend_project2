@@ -11,3 +11,7 @@ div{
 .button:hover {
   cursor: pointer;
 }
+
+p{
+  padding: 20px;
+}
