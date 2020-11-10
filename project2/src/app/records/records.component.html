@@ -1,1 +1,17 @@
-<p>records works!</p>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let record of records">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Record:
+          </mat-panel-title>
+          <mat-panel-description>
+            {{record._id}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngFor="let data of recordList">
+            <div *ngIf="data[0] == record._id" ><p *ngFor="let item of data">{{item}}</p></div>
+        </div>
+      </mat-expansion-panel>
+</mat-accordion>
+
+

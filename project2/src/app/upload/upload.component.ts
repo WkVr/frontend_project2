@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { HttpService } from "../http.service";
 
 @Component({
   selector: 'app-upload',
@@ -8,10 +9,11 @@ import {Component, OnInit} from '@angular/core';
 export class UploadComponent implements OnInit {
 
   information: string[];
+  writeArray: any[];
 
   listShow = false;
 
-  constructor() {}
+  constructor(private http: HttpService) {}
 
   ngOnInit(): void {}
 
@@ -36,7 +38,22 @@ export class UploadComponent implements OnInit {
   }
 
   write(){
-    
+    let record = {
+      item1: 'ssssss',
+      item2: 'dddddd'
+    }
+    this.http.login("http://localhost:3000/createRecord", record).subscribe(
+      data => {
+        let res:any = data;
+        console.log(res);
+      },
+      err => {
+        console.log("Error");
+      },
+      () => {
+        console.log("Created");
+      }
+    );
   }
 
 }

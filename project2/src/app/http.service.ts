@@ -21,5 +21,15 @@ export class HttpService {
   {
     return this.http.post(url, data);
   }
+
+  getRecords(url)
+  {
+    return this.http.get(url);
+  }
+
+  getRecord(url, data)
+  {
+    return this.http.get(url, data);
+  }
    
 }

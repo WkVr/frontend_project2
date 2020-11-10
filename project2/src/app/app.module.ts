@@ -20,7 +20,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatListModule } from '@angular/material/list';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatTabsModule,
     MatListModule,
-    MatCheckboxModule
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
