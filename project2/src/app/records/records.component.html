@@ -9,7 +9,11 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div *ngFor="let data of recordList">
-            <div *ngIf="data[0] == record._id" ><p *ngFor="let item of data">{{item}}</p></div>
+            <div *ngIf="data[0] == record._id" >
+              <p *ngFor="let item of data, let i = index">
+                {{item}}
+              </p>
+            </div>
         </div>
       </mat-expansion-panel>
 </mat-accordion>

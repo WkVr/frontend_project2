@@ -73,13 +73,14 @@ export class UploadComponent implements OnInit {
   clear(){
     this.correctionList = false;
     this.finished = true;
+    if(this.correctionArray.length == 0) this.writedata = true;
   }
 
   write(){
     let record = { };
     for(var i = 0; i< this.writeArray.length; i++)
     {
-      record[i] = this.writeArray[i];
+      record["i"+i] = this.writeArray[i];
     }
     console.log(record);
     this.http.login("http://localhost:3000/createRecord", record).subscribe(
