@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatInputModule,
     MatTabsModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

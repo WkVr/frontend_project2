@@ -27,20 +27,17 @@ export class RecordsComponent implements OnInit {
         {
           this.recordData = [];
           this.temp = this.records[i];
-          console.log(this.temp);
           for(var item in this.temp)
           {
             this.recordData.push(this.temp[item]);
           }
           this.addToArray(this.recordData);
         }
-        console.log(this.recordList);
       },
       err => {
         console.log("Error");
       }
     );
-    console.log(this.recordList);
   }
 
   getRecord(idParam: string){

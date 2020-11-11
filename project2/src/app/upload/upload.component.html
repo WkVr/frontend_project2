@@ -1,12 +1,49 @@
-<div class="Block">
+<div class="Block" class="div" *ngIf="!loaded">
+    <h3>Click on the choose file button to select a file:</h3>
     <input type='file' (change)="fileChanged($event)">
 </div>
 
-<div *ngIf="listShow" #info>
-    <mat-selection-list >
-        <mat-list-option *ngFor="let info of information">
-          {{ info }}
+<div *ngIf="listShow" #info class="div">
+    <h3>The following items were found in the file you selected:</h3>
+    <mat-list >
+        <mat-list-item *ngFor="let info of information">
+          {{info}}
+        </mat-list-item>
+    </mat-list>
+    <button mat-stroked-button (click)="list()">Submit</button>
+</div>
+
+
+<div *ngIf="correctionList" class="div">
+    <h3>The sensitive data has been classified. If we miss clasified some of the data shown below please select them:</h3>
+    <mat-selection-list #correction>
+        <mat-list-option *ngFor="let info of unclasifiedArray" (click)="onListChanged(info)" style="display: inline;">
+          {{info}}
         </mat-list-option>
     </mat-selection-list>
+    
+    <button mat-stroked-button (click)="clear()">Finished</button>
+</div>
+
+<div *ngIf="finished">
+    <div *ngFor="let item of correctionArray" class="div2">
+        <h3>Enter the type of data shown below:</h3>
+        <mat-label style="padding: 10px;">{{item}}</mat-label>
+        <input matInput #data [formControl]="dataFormControl" placeholder="Ex. Name" style="padding: 20px;">
+        <button mat-mini-fab (click)="save(data.value, item)" >
+            <mat-icon>done</mat-icon>
+        </button>
+    </div>
+</div>
+
+
+<div *ngIf="writedata" class="div">
+    <h3>The following data has will be written to the database:</h3>
+    <mat-list >
+        <mat-list-item *ngFor="let info of writeArray">
+          {{info}}
+        </mat-list-item>
+    </mat-list>
     <button mat-stroked-button (click)="write()">Submit</button>
 </div>
+
