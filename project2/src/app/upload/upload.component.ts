@@ -96,6 +96,7 @@ export class UploadComponent implements OnInit {
       }
     );
     this.writedata = false;
+    this.loaded = false;
   }
 
   dataValidate(element: any)
