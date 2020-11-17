@@ -120,6 +120,10 @@ export class UploadComponent implements OnInit {
         bClasified = true;
       }
     }
+    else if(element.includes('@') && element.includes('.')) {
+      this.writeArray.push("Email Address");
+      bClasified = true;
+    }
     if(!bClasified) this.unclasifiedArray.push(element);
     this.correctionList = true;
   }

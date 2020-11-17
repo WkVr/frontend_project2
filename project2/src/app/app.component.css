@@ -10,3 +10,21 @@ p:hover{
     color: rgb(128, 128, 128);
     cursor: pointer;
 }
+
+.divLogin{
+    background-color: rgba(56, 53, 53, 0.5);
+    border-radius: 25px;
+    justify-content: center;
+    padding: 50px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .button:hover {
+    cursor: pointer;
+  }
+  
+  p{
+    padding: 20px;
+  }

@@ -1,4 +1,23 @@
 <div>
-    <p (click)="login()" style="text-align: right">Login</p>
+    <p (click)="show()" style="text-align: right" *ngIf="!blogin">Login</p>
+    <p (click)="logout()" style="text-align: right" *ngIf="blogin">Logout</p>
 </div>
-<app-login *ngIf="blogin"></app-login>
+
+<div *ngIf="showLogin" class="divLogin">
+    <form>
+        <mat-form-field >
+          <mat-label>Username</mat-label>
+          <input matInput #username>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" #password>
+        </mat-form-field>
+        <br>
+    </form>
+    <button mat-flat-button color="accent" (click)="login(username.value, password.value)">Login</button>
+    <p *ngIf="loginError">Login credential are incorrect</p>
+</div>
+
+<app-navbar *ngIf="blogin"></app-navbar>

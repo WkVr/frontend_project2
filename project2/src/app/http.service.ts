@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+
+import { AppComponent } from "./app.component"
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
+  tokenHeader = JSON.stringify(localStorage.getItem('token'));
+
   constructor(private http: HttpClient) {}
+
+  header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  'Bearer' + this.tokenHeader)
+  }
 
   httpPost(url, {}) {
     return this.http.post(url, {});
@@ -24,7 +33,7 @@ export class HttpService {
 
   getRecords(url)
   {
-    return this.http.get(url);
+    return this.http.get(url, this.header);
   }
 
   getRecord(url, data)

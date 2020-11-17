@@ -17,7 +17,7 @@ export class RecordsComponent implements OnInit {
   i = 0;
 
   constructor(private http: HttpService) {}
-
+      
   ngOnInit(): void {
     this.http.getRecords('http://localhost:3000/recordList').subscribe(
       data => {
