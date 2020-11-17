@@ -1,6 +1,6 @@
 <div class="Block" class="div" *ngIf="!loaded">
     <h3>Click on the choose file button to select a file:</h3>
-    <input type='file' (change)="fileChanged($event)">
+    <input type='file' (change)="fileChanged($event)" accept=".xlsx, .xls, .csv, .txt">
 </div>
 
 <div *ngIf="listShow" #info class="div">

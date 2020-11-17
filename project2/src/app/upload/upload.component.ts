@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { HttpService } from "../http.service";
 
+import * as XLSX from 'ts-xlsx';
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -13,6 +15,8 @@ export class UploadComponent implements OnInit {
   unclasifiedArray: any[] = [];
   writeArray:  any[] = [];
   correctionArray: any[] = [];
+
+  arrayBuffer:any;
 
   listShow = false;
   loaded = false;
@@ -44,21 +48,51 @@ export class UploadComponent implements OnInit {
   file:any;
   fileChanged(e) {
     this.file = e.target.files[0];
-    this.uploadDocument(this.file);
+    var name = e.target.files[0].name;
+    this.uploadDocument(this.file, name);
   }
 
-  uploadDocument(file) {
-    let fileReader = new FileReader();
-    fileReader.onload = (e) => {
-      this.readToArray(fileReader.result.toString());
-      this.listShow = true;
+  uploadDocument(file, name: string) {
+    if(name.includes(".xls") || name.includes(".xlsx")){
+      let fileReader = new FileReader();
+      fileReader.onload = (e) => {
+          this.arrayBuffer = fileReader.result;
+          var data = new Uint8Array(this.arrayBuffer);
+          var arr = new Array();
+          for(var i = 0; i != data.length; ++i){
+           arr[i] = String.fromCharCode(data[i]);
+          }
+          var bstr = arr.join("");
+          var workbook = XLSX.read(bstr, {type:"binary"});
+          var first_sheet_name = workbook.SheetNames[0];
+          var worksheet = workbook.Sheets[first_sheet_name];
+          file = XLSX.utils.sheet_to_csv(worksheet);
+          file = file.toString();
+          console.log(file);
+          for(var i = 0;i < this.information.length; i++){
+            file = file.replace(',,',',');
+            file = file.replace('/n','');
+          }
+          console.log(file);
+          this.information = file.split(',');
+          this.loaded = true;
+          this.listShow = true;
+      }
+      fileReader.readAsArrayBuffer(this.file);
     }
-    fileReader.readAsText(this.file);
+    else{
+      let fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        this.readToArray(fileReader.result.toString());
+        this.listShow = true;
+      }
+      fileReader.readAsText(this.file);
+    }
+    
   }
 
   readToArray(info: string){
-    this.information = info.split('\n');
-    this.information = info.split(',');
+    this.information = info.split('\n') && info.split(',');
     this.loaded = true;
   }
 
