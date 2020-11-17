@@ -60,7 +60,6 @@ export class AppComponent {
 
   logout()
   {
-    console.log(this.token);
-    console.log(this.refreshToken);
+    this.blogin = false;
   }
 }
