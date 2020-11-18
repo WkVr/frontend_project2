@@ -2,11 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { UploadComponent } from './upload/upload.component';
 import { RecordsComponent } from './records/records.component';
-import { InfoComponent } from './info/info.component';
-import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,18 +19,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     UploadComponent,
     RecordsComponent,
-    InfoComponent,
-    LoginComponent,
-    NavbarComponent,
-    AddUserComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,8 @@
 <div *ngIf="user" class="divLogin">
   <form>
       Create a new user by entering the following detail
-      <mat-form-field >
+      <br>
+      <mat-form-field>
         <mat-label>Username</mat-label>
         <input matInput #username>
       </mat-form-field>
@@ -44,6 +45,8 @@
       <br>
   </form>
   <button mat-flat-button color="accent" (click)="createUser(username.value, password.value)">Create</button>
+  <br>
+  <br>
   <button mat-flat-button color="accent" (click)="cancelUser()">Cancel</button>
   <p *ngIf="createError">{{username.value}} already taken</p>
 </div>
