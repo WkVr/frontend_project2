@@ -4,6 +4,7 @@ div{
     justify-content: center;
     padding: 50px;
     margin: 10px;
+    text-align: center;
 }
 
 p:hover{
@@ -28,3 +29,5 @@ p:hover{
   p{
     padding: 20px;
   }
+
+ 

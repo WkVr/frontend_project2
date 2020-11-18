@@ -40,5 +40,10 @@ export class HttpService {
   {
     return this.http.get(url, data);
   }
+
+  createUser(url, user)
+  {
+    return this.http.post(url, user, this.header);
+  }
    
 }

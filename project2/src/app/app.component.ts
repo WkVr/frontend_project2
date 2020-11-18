@@ -11,6 +11,8 @@ export class AppComponent {
 
   blogin = false;
   showLogin = false;
+  user = false;
+  bUpload = false;
 
   public token: string;
   public refreshToken: string;
@@ -19,10 +21,46 @@ export class AppComponent {
 
   public bLogin;
   loginError = false;
+  createError = false;
 
   show()
   {
     this.showLogin = true;
+  }
+
+  addUser(){
+    this.showLogin = false;
+    this.bUpload = false;
+    this.user = true;
+  }
+
+  createUser(username: any, password: any){
+    let user = {
+      username: username,
+      password: password
+    }
+    this.http.createUser("http://localhost:3000/register", user).subscribe(
+        data => {
+          let res:any = data;
+          console.log(res);
+          this.user = false;
+          this.bUpload = true;
+        },
+        err => {
+          console.log("Error");
+          this.createError = true;
+        },
+        () => {
+          console.log("Created");
+          this.user = false;
+          this.bUpload = true;
+        }
+      ); 
+  }
+
+  cancelUser(){
+    this.user = false;
+    this.bUpload = true;
   }
 
   login(usernameParam: string, passwordParam: string){
@@ -47,6 +85,7 @@ export class AppComponent {
           console.log("Logged In");
           this.blogin = true;
           this.showLogin = false;
+          this.bUpload = true;
         }
       ); 
     }
@@ -60,5 +99,8 @@ export class AppComponent {
   logout()
   {
     this.blogin = false;
+    this.bUpload = false;
+    this.createError = false;
+    this.showLogin = false;
   }
 }

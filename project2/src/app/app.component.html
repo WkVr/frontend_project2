@@ -1,7 +1,15 @@
 <div>
+    <h1>Data Clasification Tool</h1>
     <p (click)="show()" style="text-align: right" *ngIf="!blogin">Login</p>
     <p (click)="logout()" style="text-align: right" *ngIf="blogin">Logout</p>
-    <p (click)="addUser()"></p>
+    <p (click)="addUser()"style="text-align: right" *ngIf="blogin">Create User</p>
+
+    <pre *ngIf="!bLogin">
+      You can use this application to clasify data.
+      All you need to do is upload an file and click on the buttons.
+      the classified data will be stored on a database for later retrieval and use.
+      Log in with your username and password and follow the steps.
+    </pre>
 </div>
 
 <div *ngIf="showLogin" class="divLogin">
@@ -21,4 +29,23 @@
     <p *ngIf="loginError">Login credential are incorrect</p>
 </div>
 
-<app-navbar *ngIf="blogin"></app-navbar>
+<div *ngIf="user" class="divLogin">
+  <form>
+      Create a new user by entering the following detail
+      <mat-form-field >
+        <mat-label>Username</mat-label>
+        <input matInput #username>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" #password>
+      </mat-form-field>
+      <br>
+  </form>
+  <button mat-flat-button color="accent" (click)="createUser(username.value, password.value)">Create</button>
+  <button mat-flat-button color="accent" (click)="cancelUser()">Cancel</button>
+  <p *ngIf="createError">{{username.value}} already taken</p>
+</div>
+
+<app-navbar *ngIf="bUpload"></app-navbar>
