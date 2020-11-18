@@ -3,6 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import { HttpService } from "../http.service";
 
 import * as XLSX from 'ts-xlsx';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload',
@@ -10,6 +11,7 @@ import * as XLSX from 'ts-xlsx';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+
 
   information: any = [];
   unclasifiedArray: any[] = [];

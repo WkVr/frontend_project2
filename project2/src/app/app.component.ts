@@ -32,12 +32,11 @@ export class AppComponent {
         password: passwordParam
       }
   
-      this.http.login("http://localhost:4000/login", info).subscribe(
+      this.http.login("http://localhost:3000/login", info).subscribe(
         data => {
           let res:any = data;
           console.log(res);
           this.token = res.accessToken;
-          this.refreshToken = res.refreshToken;
           localStorage.setItem('token', res.accessToken)
         },
         err => {

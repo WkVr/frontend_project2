@@ -18,17 +18,17 @@ export class HttpService {
   }
 
   httpPost(url, {}) {
-    return this.http.post(url, {});
+    return this.http.post(url, {}, this.header);
   }
 
   login(url, data)
   {
-    return this.http.post(url, data);
+    return this.http.post(url, data, this.header);
   }
 
   createRecord(url, data)
   {
-    return this.http.post(url, data);
+    return this.http.post(url, data, this.header);
   }
 
   getRecords(url)
