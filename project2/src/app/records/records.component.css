@@ -1,1 +1,8 @@
+p{
+    padding: 20px;
+}
 
+p:hover{
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}

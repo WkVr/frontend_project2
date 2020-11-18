@@ -19,6 +19,14 @@ export class RecordsComponent implements OnInit {
   constructor(private http: HttpService) {}
       
   ngOnInit(): void {
+    this.getRecords();
+  }
+
+  refresh(){
+    this.getRecords();
+  }
+
+  getRecords(){
     this.http.getRecords('http://localhost:3000/recordList').subscribe(
       data => {
         this.records = data;
@@ -36,20 +44,6 @@ export class RecordsComponent implements OnInit {
       },
       err => {
         console.log("Error");
-      }
-    );
-  }
-
-  getRecord(idParam: string){
-    let recordId = { 
-      id: idParam 
-    }; 
-    this.http.getRecord('http://localhost:3000/record', recordId).subscribe(
-      data => {
-        return data;
-      },
-      err => {
-        console.log(err);
       }
     );
   }
