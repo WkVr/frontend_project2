@@ -23,7 +23,7 @@ export class HttpService {
 
   login(url, data)
   {
-    return this.http.post(url, data, this.header);
+    return this.http.post(url, data);
   }
 
   createRecord(url, data)
