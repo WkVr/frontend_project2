@@ -1,6 +1,7 @@
 <div>
     <p (click)="show()" style="text-align: right" *ngIf="!blogin">Login</p>
     <p (click)="logout()" style="text-align: right" *ngIf="blogin">Logout</p>
+    <p (click)="addUser()"></p>
 </div>
 
 <div *ngIf="showLogin" class="divLogin">
