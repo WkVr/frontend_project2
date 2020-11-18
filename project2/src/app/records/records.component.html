@@ -5,11 +5,11 @@
             Record:
           </mat-panel-title>
           <mat-panel-description>
-            {{record._id}}
+            {{record.id}}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div *ngFor="let data of recordList">
-            <div *ngIf="data[0] == record._id" >
+            <div *ngIf="data[0] == record.id" >
               <p *ngFor="let item of data, let i = index">
                 {{item}}
               </p>
