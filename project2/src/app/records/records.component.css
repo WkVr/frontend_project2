@@ -1,8 +1,8 @@
-p{
+pre{
     padding: 20px;
 }
 
-p:hover{
+pre:hover{
     color: rgb(128, 128, 128);
     cursor: pointer;
 }

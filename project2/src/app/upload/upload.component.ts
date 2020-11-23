@@ -133,6 +133,7 @@ export class UploadComponent implements OnInit {
     );
     this.writedata = false;
     this.loaded = false;
+    this.writeArray = [];
   }
 
   dataValidate(element: any)
